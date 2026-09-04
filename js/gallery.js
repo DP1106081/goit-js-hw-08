@@ -101,4 +101,19 @@ function noClick(event) {
 
 galleryContainer.addEventListener("click", handleClickItem);
 
-function handleClickItem(event) {}
+function handleClickItem(event) {
+  event.preventDefault();
+
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
+  const largeImage = event.target.dataset.source;
+  const imageAlt = event.target.alt;
+
+  const instance = basicLightbox.create(`
+    <div class="modal">
+      <img src="${largeImage}" alt="${imageAlt}" width="1112" height="640">
+    </div>
+  `);
+  instance.show();
+}
