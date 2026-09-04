@@ -81,6 +81,7 @@ function createMarkup(arr) {
             data-source="${original}"
            
             alt="${description}"
+            
           />
         </a>
       </li>
@@ -97,3 +98,7 @@ galleryContainer.addEventListener("click", noClick);
 function noClick(event) {
   event.preventDefault();
 }
+
+galleryContainer.addEventListener("click", handleClickItem);
+
+function handleClickItem(event) {}
